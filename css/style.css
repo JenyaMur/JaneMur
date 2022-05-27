@@ -1,0 +1,154 @@
+body {
+    font-family: "IBM Plex Serif", serif;
+    color: rgb(38, 37, 37);
+    background-color: rgb(236, 230, 230);
+}
+
+.main-page {
+    max-width: 900px;
+    min-width: 350px;
+    border-radius: 20px;
+    background-color: #f7ecde;
+    margin: 2em auto;
+    padding: 1em 2em;
+}
+
+#current-location {
+    display: block;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 5px 20px;
+    border: none;
+    color: #ffffff;
+    background-color: #fca042;
+}
+
+.current-city-column h2 {
+    margin: 0;
+    font-style: italic;
+}
+
+.search-column {
+    text-align: end;
+}
+
+.search-field {
+    border: 1px solid green;
+    background-color: #fbf8f1;
+    border-radius: 5px;
+}
+
+.forecast-row {
+    margin: 20px auto;
+    justify-content: space-between;
+}
+
+.forecast-row,
+.row-weather-for-five-days {
+    align-items: center;
+}
+
+.forecast-description div:hover {
+    background-color: #fbf8f1;
+}
+
+.current-weather-image {
+    width: 180px;
+}
+
+.search-button {
+    border-radius: 30px;
+    border: 1px solid green;
+    background-color: green;
+    color: aliceblue;
+    padding: 5px 10px;
+    transition: all 200ms ease-in-out;
+}
+
+.search-button:hover {
+    cursor: pointer;
+    background-color: #fbf8f1;
+    color: green;
+}
+
+.current-temperature {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.announce-heading {
+    text-align: center;
+    color: #54bab9;
+    font-size: 1.2em;
+    text-decoration: underline;
+    word-wrap: normal;
+}
+
+.forecast-card {
+    border-radius: 20px;
+}
+
+.forecast-card:hover {
+    background-color: #fbf8f1;
+}
+
+.card-body img {
+    height: 85px;
+    margin-bottom: 1em;
+}
+
+.forecast-card p {
+    text-align: center;
+}
+
+.forecast-card-min-temperature {
+    color: darkgrey;
+}
+
+.forecast-description {
+    font-weight: 300;
+    font-style: italic;
+}
+
+.temperature-range-section {
+    text-align: center;
+}
+
+#day-max-temperature,
+#day-min-temperature {
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 5px 15px;
+    width: fit-content;
+    margin: 0;
+}
+
+#day-max-temperature {
+    background-color: rgb(247, 230, 200);
+}
+
+#day-min-temperature {
+    background-color: rgb(219, 219, 248);
+}
+
+@media (max-width: 576px) {
+    .city-row {
+        flex-direction: column-reverse;
+    }
+
+    .forecast-row {
+        flex-direction: column;
+    }
+
+    .city-row>div,
+    .forecast-row>div {
+        text-align: center;
+        margin: 0 auto 20px;
+    }
+
+    .current-city-column {
+        margin: 10px auto;
+    }
+}
