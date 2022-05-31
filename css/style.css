@@ -124,7 +124,12 @@ body {
     width: fit-content;
     margin: 0;
 }
+.temperature-range-section .active {
+    color: black;
+    cursor: default;
+    text-decoration: none;
 
+}
 #day-max-temperature {
     background-color: rgb(247, 230, 200);
 }

@@ -27,9 +27,9 @@
       </div>
       <div class="row city-row">
         <div class="col-12 col-sm-5 col-md-6 flex-column current-city-column">
-          <h1 id="current-city">📍 Valencia</h1>
-          <h2 id="current-time">Monday 12:00</h2>
-          <h2 id="weathet-condition">Sunny</h2>
+          <h1 id="current-city">📍</h1>
+          <h2 id="current-time"></h2>
+          <h2 id="weathet-condition"></h2>
         </div>
         <div class="col-12 col-sm-7 col-md-6 search-column">
           <p>Check the weather in your city</p>
@@ -46,27 +46,32 @@
       </div>
       <div class="row forecast-row">
         <div class="col-12 col-sm-3 p-0">
-          <img src="images/d.svg" alt="..." class="current-weather-image" />
+          <img
+            src="images/d.svg"
+            alt="..."
+            class="current-weather-image"
+            id="current-image"
+          />
         </div>
         <div class="col-12 col-sm-4 flex-column temperature-range-section">
           <span class="current-temperature">
-            <span id="current-temperature"> -15 </span>
+            <span id="current-temperature"> </span>
 
             <sup>
-              <a href="#" id="degree-celsius">°C</a>|
+              <a href="#" id="degree-celsius" class="active">°C</a>|
               <a href="#" id="degree-fahrenheit">°F</a>
             </sup></span
           >
           <div>
-            <span id="day-min-temperature">+18°</span>
-            <span id="day-max-temperature">+25°</span>
+            <span id="day-min-temperature"></span>
+            <span id="day-max-temperature"></span>
           </div>
         </div>
         <div class="col-12 col-sm-4 flex-column forecast-description">
-          <div id="visibility">Visibility: 10.0km</div>
-          <div id="humidity">humidity: 40%</div>
-          <div id="pressure">pressure, mm: 732</div>
-          <div id="wind-power">wind: 30 m/s</div>
+          <div id="visibility"></div>
+          <div id="humidity"></div>
+          <div id="pressure"></div>
+          <div id="wind-power"></div>
         </div>
       </div>
       <div
