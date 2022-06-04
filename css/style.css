@@ -105,6 +105,7 @@ body {
 
 .forecast-card-min-temperature {
     color: darkgrey;
+    padding-left: 5px;
 }
 
 .forecast-description {

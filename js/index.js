@@ -1,3 +1,7 @@
+function getForecast(coordinates) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(dailyForecast);
+}
 function showWeather(response) {
   
   let currentTemperatute = Math.round(response.data.main.temp);
@@ -71,6 +75,8 @@ function showWeather(response) {
   degreeFahrenheit.addEventListener("click", changeTempFahrenheit);
   let degreeCelsius = document.querySelector("#degree-celsius");
   degreeCelsius.addEventListener("click", changeTempCelsius);
+console.log(response.data);
+  getForecast(response.data.coord);
 }
 function searchCity(event) {
   event.preventDefault();
@@ -97,7 +103,45 @@ function checkLocation() {
   navigator.geolocation.getCurrentPosition(handlePosition);
 }
 
-let currentDate = new Date();
+function formatDay(time) {
+  let date = new Date(time * 1000);
+  let day = date.getDay();
+  return days[day];
+}
+
+function dailyForecast(response) {
+let forecast = response.data.daily;
+let rowWeather = document.querySelector("#row-weather");
+let forecastHtml = "";
+
+
+forecast.forEach(function(day, index) {
+  if (index > 0) {
+if (index < 6) {
+forecastHtml = forecastHtml + `<div class="card col-lg-2 col-sm-3 col-6 forecast-card">
+          <h3 class="card-title announce-heading">${formatDay(day.dt)}</h3>
+          <div class="card-body">
+            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/>
+            <p class="card-text">
+               ${Math.round(day.temp.max)}° <span class="forecast-card-min-temperature">   ${  Math.round(day.temp.min)}°</span>
+            </p>
+          </div>
+        </div>`
+  }
+  }
+  
+
+  
+})
+rowWeather.innerHTML = forecastHtml;
+}
+
+
+
+
+
+
+
 let days = [
   "Sunday",
   "Monday",
@@ -107,6 +151,7 @@ let days = [
   "Friday",
   "Saturday"
 ];
+let currentDate = new Date();
 let day = days[currentDate.getDay()];
 let hour = currentDate.getHours();
 let minutes = currentDate.getMinutes();
