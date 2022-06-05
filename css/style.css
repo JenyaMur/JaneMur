@@ -40,7 +40,7 @@ body {
 }
 
 .forecast-row {
-    margin: 20px auto;
+    margin: 0 auto 20px;
     justify-content: space-between;
 }
 
@@ -142,7 +142,10 @@ body {
     text-align: center;
     margin-top: 20px;
 }
-
+.image-daily-forecast {
+    display: block;
+    margin: 0 auto;
+}
 @media (max-width: 576px) {
     .city-row {
         flex-direction: column-reverse;

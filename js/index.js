@@ -43,39 +43,6 @@ function showWeather(response) {
   let weatherImage = document.querySelector("#current-image");
   weatherImage.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
-  function changeTempFahrenheit(event) {
-    event.preventDefault();
-    let celciusLink = document.querySelector("#degree-celsius");
-    celciusLink.classList.remove("active");
-    let farLink = document.querySelector("#degree-fahrenheit");
-    farLink.classList.add("active");
-    let farTemp = (response.data.main.temp * 1.8 + 32).toFixed(0);
-    if (farTemp > 0) {
-      currentTemp.innerHTML = "+" + farTemp;
-    } else {
-      currentTemp.innerHTML = farTemp;
-    }
-  }
-  function changeTempCelsius(event) {
-    event.preventDefault();
-    let celciusLink = document.querySelector("#degree-celsius");
-    celciusLink.classList.add("active");
-    let farLink = document.querySelector("#degree-fahrenheit");
-    farLink.classList.remove("active");
-    currentTemp.innerHTML = temp;
-    if (temp > 0) {
-      currentTemp.innerHTML = "+" + temp.toFixed(0);
-    } else {
-      currentTemp.innerHTML = temp.toFixed(0);
-    }
-  }
-  let degreeFahrenheit = document.querySelector("#degree-fahrenheit");
-  let currentTemp = document.querySelector("#current-temperature");
-  let temp = response.data.main.temp;
-  degreeFahrenheit.addEventListener("click", changeTempFahrenheit);
-  let degreeCelsius = document.querySelector("#degree-celsius");
-  degreeCelsius.addEventListener("click", changeTempCelsius);
-console.log(response.data);
   getForecast(response.data.coord);
 }
 function searchCity(event) {
@@ -121,7 +88,7 @@ if (index < 6) {
 forecastHtml = forecastHtml + `<div class="card col-lg-2 col-sm-3 col-6 forecast-card">
           <h3 class="card-title announce-heading">${formatDay(day.dt)}</h3>
           <div class="card-body">
-            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"/>
+            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="image-daily-forecast"/>
             <p class="card-text">
                ${Math.round(day.temp.max)}° <span class="forecast-card-min-temperature">   ${  Math.round(day.temp.min)}°</span>
             </p>
@@ -135,12 +102,6 @@ forecastHtml = forecastHtml + `<div class="card col-lg-2 col-sm-3 col-6 forecast
 })
 rowWeather.innerHTML = forecastHtml;
 }
-
-
-
-
-
-
 
 let days = [
   "Sunday",
